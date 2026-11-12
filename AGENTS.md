@@ -2,7 +2,7 @@
 
 ## What this repository is
 
-`doggy` is a Rust desktop application built with **iced 0.15.0-dev**.
+`clearmind` is a Rust desktop application built with **iced 0.15.0-dev**.
 
 `docs/iced/` is a read-only Markdown snapshot of the iced API documentation,
 generated from <https://docs.iced.rs/iced/> at the commit pinned in

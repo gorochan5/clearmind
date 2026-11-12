@@ -3,7 +3,7 @@
 **Document:** Specification v1.0  
 **Status:** Implementation baseline  
 **Product:** Doggy, a native desktop live Markdown editor  
-**Target repository:** `doggy`  
+**Target repository:** `clearmind`  
 **Target framework:** iced dependency configured in the repository's `Cargo.toml`
 
 ## 1. Purpose and audience
