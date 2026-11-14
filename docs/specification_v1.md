@@ -1,14 +1,14 @@
-# Doggy — Product and Engineering Specification
+# ClearMind — Product and Engineering Specification
 
 **Document:** Specification v1.0  
 **Status:** Implementation baseline  
-**Product:** Doggy, a native desktop live Markdown editor  
+**Product:** ClearMind, a native desktop live Markdown editor  
 **Target repository:** `clearmind`  
 **Target framework:** iced dependency configured in the repository's `Cargo.toml`
 
 ## 1. Purpose and audience
 
-Doggy is a small desktop application for editing GitHub Flavored Markdown (GFM) source while viewing a live rendered preview. The initial release focuses on a fast, readable two-pane authoring experience and a lean native application. It does not include file management, publishing, or collaboration features.
+ClearMind is a small desktop application for editing GitHub Flavored Markdown (GFM) source while viewing a live rendered preview. The initial release focuses on a fast, readable two-pane authoring experience and a lean native application. It does not include file management, publishing, or collaboration features.
 
 This document is the implementation brief for the engineer building the initial release. It defines product behavior, implementation boundaries, visual direction, and completion criteria. The deliverable for this task is the application implementation; this specification is not itself requesting those source files as output.
 
@@ -45,9 +45,9 @@ The initial release does not require:
 
 ### 5.1 Startup
 
-On launch, Doggy displays its main editor window populated with a Markdown sample. The sample is also the initial editor content, so the preview is populated without requiring user input.
+On launch, ClearMind displays its main editor window populated with a Markdown sample. The sample is also the initial editor content, so the preview is populated without requiring user input.
 
-Set the native window title to `Doggy`. Use a practical desktop default size and enforce a minimum size that keeps both panes usable. The layout remains side by side when resized; if the available width becomes too narrow, panes may become correspondingly narrow rather than switching to a different navigation mode.
+Set the native window title to `ClearMind`. Use a practical desktop default size and enforce a minimum size that keeps both panes usable. The layout remains side by side when resized; if the available width becomes too narrow, panes may become correspondingly narrow rather than switching to a different navigation mode.
 
 The sample must demonstrate:
 
@@ -62,13 +62,13 @@ The sample must demonstrate:
 
 The main window is divided into two equally sized panes. The left pane contains the Markdown source editor; the right pane contains the rendered preview. A subtle vertical rule separates them.
 
-When the user performs an editor action that changes the document—including typing, deletion, paste, undo, or redo—Doggy updates the Markdown source and refreshes the parsed preview. Non-editing editor actions such as cursor movement or selection changes must not trigger Markdown parsing. The preview should correspond to the current source after each editing action is processed. Empty or syntactically incomplete Markdown remains editable and should render using the parser's normal behavior without crashing.
+When the user performs an editor action that changes the document—including typing, deletion, paste, undo, or redo—ClearMind updates the Markdown source and refreshes the parsed preview. Non-editing editor actions such as cursor movement or selection changes must not trigger Markdown parsing. The preview should correspond to the current source after each editing action is processed. Empty or syntactically incomplete Markdown remains editable and should render using the parser's normal behavior without crashing.
 
 Both panes must support scrolling when their content exceeds the visible area. The source pane must use a monospace font. The preview must be rendered using iced’s native Markdown widget.
 
 ### 5.3 Links
 
-Links in the preview must be interactive using the pinned iced Markdown API. On click, Doggy logs the clicked URL with `tracing` at info level and handles the event without panicking. Opening the system browser is out of scope for this release.
+Links in the preview must be interactive using the pinned iced Markdown API. On click, ClearMind logs the clicked URL with `tracing` at info level and handles the event without panicking. Opening the system browser is out of scope for this release.
 
 ### 5.4 Markdown dialect
 
@@ -82,7 +82,7 @@ Use the modern `iced::application(title, update, view)` builder API supported by
 
 ### FR-2 — Application state
 
-Define an application state type named `Doggy`. It must own:
+Define an application state type named `ClearMind`. It must own:
 
 - The `iced::widget::text_editor::Content` for the Markdown source.
 - A `Vec<iced::widget::markdown::Item>` containing the parsed preview representation.
@@ -179,7 +179,7 @@ The implementation is complete when all of the following are true:
 
 After implementing the application, run `cargo check` and resolve compilation errors. Do not add or run additional tests unless requested. The implementation review should include this manual smoke checklist:
 
-1. Launch Doggy and confirm the sample and preview appear.
+1. Launch ClearMind and confirm the sample and preview appear.
 2. Type, delete, paste, undo, and redo Markdown; confirm the preview follows the source.
 3. Move the cursor without editing; confirm the preview remains stable.
 4. Click a preview link; confirm its URL is logged and the application remains responsive.

@@ -6,15 +6,19 @@ edition = "2024"
 [dependencies]
 anyhow = "1.0.104"
 iced = { git = "https://github.com/iced-rs/iced", branch = "master", version = "0.15.0-dev", features = ["markdown", "highlighter"] }
+notify = "8"
 serde = { version = "1.0.229", features = ["derive"] }
 tokio = { version = "1.54.0", features = ["full"] }
 tracing = "0.1.44"
 tracing-subscriber = { version = "0.3.23", features = ["json", "env-filter", "local-time", "fmt"] }
 
+[build-dependencies]
+winresource = "0.1"
+
 [profile.release]
 lto = true
 strip = true
-codegen-units = 1
+codegen-units = 28
 opt-level = 3
 
 [profile.dev]
