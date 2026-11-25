@@ -1,9 +1,9 @@
-# Regenera src/icons.rs a partir de resources/lucide/lucide.css.
+# Regenera src/core/icons.rs a partir de resources/lucide/lucide.css.
 # Uso (na raiz do projeto): pwsh scripts/gen-icons.ps1
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $css = Join-Path $root 'resources/lucide/lucide.css'
-$out = Join-Path $root 'src/icons.rs'
+$out = Join-Path $root 'src/core/icons.rs'
 
 $keywords = @('as','break','const','continue','else','enum','extern','false','fn','for','if','impl','in','let','loop','match','mod','move','mut','pub','ref','return','static','struct','trait','true','type','unsafe','use','where','while','async','await','dyn','abstract','become','box','do','final','macro','override','priv','typeof','unsized','virtual','yield','try','gen')
 $noRaw = @('self','super','crate')
@@ -19,7 +19,7 @@ $sb = [System.Text.StringBuilder]::new()
 [void]$sb.AppendLine('use iced::widget::Text;')
 [void]$sb.AppendLine('')
 [void]$sb.AppendLine('/// Raw bytes of the Lucide font, embedded in the binary.')
-[void]$sb.AppendLine('pub const FONT_BYTES: &[u8] = include_bytes!("../resources/lucide/lucide.ttf");')
+[void]$sb.AppendLine('pub const FONT_BYTES: &[u8] = include_bytes!("../../resources/lucide/lucide.ttf");')
 [void]$sb.AppendLine('')
 [void]$sb.AppendLine('/// Font family declared inside `lucide.ttf`.')
 [void]$sb.AppendLine('pub const FONT: Font = Font::new("lucide");')

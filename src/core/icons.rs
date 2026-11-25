@@ -8,7 +8,7 @@ use iced::Font;
 use iced::widget::Text;
 
 /// Raw bytes of the Lucide font, embedded in the binary.
-pub const FONT_BYTES: &[u8] = include_bytes!("../resources/lucide/lucide.ttf");
+pub const FONT_BYTES: &[u8] = include_bytes!("../../resources/lucide/lucide.ttf");
 
 /// Font family declared inside `lucide.ttf`.
 pub const FONT: Font = Font::new("lucide");
