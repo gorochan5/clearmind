@@ -1,6 +1,6 @@
-# ClearMind
+# clearmind
 
-ClearMind is a desktop Markdown editor built in Rust with [iced](https://github.com/iced-rs/iced). It combines a live, rendered Markdown editing surface with keyboard-focused writing tools, local file tabs, and configurable reading and editor settings.
+clearmind is a desktop Markdown editor built in Rust with [iced](https://github.com/iced-rs/iced). It combines a live, rendered Markdown editing surface with keyboard-focused writing tools, local file tabs, and configurable reading and editor settings.
 
 ## Features
 
